@@ -8,6 +8,14 @@ function Results({ searchResults }) {
     return { __html: DOMPurify.sanitize(html) };
   };
 
+  if (searchResults == "error")
+    return (
+      <div className="error">
+        {" "}
+        The API is not responding please try again later.{" "}
+      </div>
+    );
+
   return (
     <div className="results">
       {dataSearchResults?.map((items, key) => (

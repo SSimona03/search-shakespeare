@@ -150,6 +150,10 @@ input:focus,
   }
 }
 
+.error {
+  margin: 20px;
+}
+
 /***************** Media *****************/
 @media (min-width: 768px) {
   body {

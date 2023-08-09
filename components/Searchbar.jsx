@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import useDebounce from "../hooks/useDebounce";
 
 function Searchbar({ onSearch }) {
   const [inputValue, setInputValue] = useState("");
   const debouncedKeyword = useDebounce(inputValue, 800);
   const [formData, setFormData] = React.useState({
-    size: "1",
+    size: "10",
   });
 
   const setSearchValue = (e) => {
@@ -45,6 +45,8 @@ function Searchbar({ onSearch }) {
       if (data.status === 200) {
         const results = await data.json();
         onSearch(results);
+      } else {
+        onSearch("error");
       }
     };
 
